@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+
+}
+#root {
+  margin: 0 auto;
+  text-align: center;
+  background: #004A8C;
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  height: 2em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+header {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.titule {
+  width: 100%;
+  font-size: 60px;
+  font-family: fantasy;
+  color: white;
+  margin: 0;
+  text-align: center;
+  position: absolute;
+}
+
+footer {
+  width: 100%;
+  height: 10%;
+  background-color: #0D1F40;
+  justify-content: space-around;
+  position: relative;
+
+}
+
+.footer {
+  font-size: medium;
+  color:white;
+  padding: 15px;
+}
+
+.imgCine:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.imgCine.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.liClass:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.liClass.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.container {
+  height: 90%;
+  width: 100%;
+}
+
+.sideBarFiltros {
+  margin:0;
+  margin-top: 90px;
+  position: fixed;
+  width: 100%;
+  text-align: left;
+  z-index: 100;
+  background-color:#004A8C;
+  height: 63px;
+  padding: 20px;
+  padding-left: 100px;
+}
+
+#channel {
+padding: 10px;
+margin-right: 10px;
+border-radius: 40px;
+background: #E50246;
+color: white;
+cursor: pointer;
+}
+
+#id {
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 40px;
+    background: #E50246;
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin-top: 11%;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  column-gap: 5%;
+  row-gap: 60px;
+  display: flex;
+  background-color: #004A8C;
+  position: absolute;
+}
+
+.liClass {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  border: black solid;
+  background: white;
+  height: 330px;
+  width: 250px;
+  margin: 3%;
+  border-radius: 30px;
+}
+
+header {
+  width: 100%;
+  height: 90px;
+  background: #323333;
+  z-index: 100;
+  position: fixed;
+}
+
+.imgLi {
+  width: 70%;
+  height: 230px;
+  margin-top: 10%;
+  border-radius: 30px;
+}
+
+dd {
+  font-weight: 1000;
+  color: #004A8C;
+}
+
+.imgCine {
+  width: 15%;
+  height: 100%;
+  z-index: 100;
+}
+
+.pagination {
+  z-index: 100;
+  position: relative;
+  width: 100%;
+  height: 8%;
+  margin-bottom: 4%;
+}
+
+.conteinerPagination {
+  margin-top: 0%;
+  background-color: #004A8C;
+  position: absolute;
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+  gap: 7px;
+}
+
+.pagination-link {
+  background-color: white;
+  border: black 1px solid;
+  cursor: pointer;
+  padding: 7px;
+}
+
+.is-current{
+  background: blue;
+  color: white
+}
+
+.backButton {
+  background-color: white;
+  border: black solid 1px;
+  margin: 9px;
+  padding: 3px 5px;
+  margin-top: -4px;
+  cursor: pointer;
+}
+
+.nextButton {
+  background-color: white;
+  border: black solid 1px;
+  margin: 9px;
+  padding: 3px 5px;
+  margin-top: -4px;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  background-color: blue;
+  color:white;
+}
+
+.nextButton:hover {
+  background-color: blue;
+  color:white;
+}
