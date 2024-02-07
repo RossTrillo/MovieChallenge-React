@@ -8,8 +8,9 @@ interface Movie {
   genre_ids: number;
 }
 
-export const ApiMovies = () => {
+export const ApiMovies = (page:number) => {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   useEffect(() => {
     const options = {
@@ -22,15 +23,16 @@ export const ApiMovies = () => {
     };
 
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
+      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
       options
     )
       .then((response) => response.json())
       .then((response) => {
         setMovies(response.results);
+        setTotalPages(response.total_pages);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [page]);
 
-  return movies;
+  return [movies, totalPages];
 };

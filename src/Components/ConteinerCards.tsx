@@ -3,14 +3,10 @@ import { Pagination } from "./Pagination";
 import { ApiMovies } from "./ApiMovies";
 
   export const ConteinerCards = () => {
-    const movies = ApiMovies()
-
-    const totalMovies = movies.length
-    const [moviesPerPage] = useState<number>(6);
     const [currentPage, setCurrentPage] = useState<number>(1);
+    const [movies, totalPages] = ApiMovies(currentPage)
 
-    const lastIndex = currentPage * moviesPerPage
-    const firstIndex = lastIndex - moviesPerPage
+
   return (
     <>
       {movies.map((movie) => (
@@ -26,12 +22,11 @@ import { ApiMovies } from "./ApiMovies";
             </dl>
           </a>
         </li>
-      )).slice(firstIndex, lastIndex)}
+      ))}
       <Pagination
-      moviesPerPage={moviesPerPage}
       currentPage ={currentPage}
       setCurrentPage={setCurrentPage}
-      totalMovies={totalMovies}
+      totalPages={totalPages}
       ></Pagination>
     </>
   );
