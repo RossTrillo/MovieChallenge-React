@@ -4,7 +4,8 @@ import { ApiMovies } from "./ApiMovies";
 
   export const ConteinerCards = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [movies, totalPages] = ApiMovies(currentPage)
+    const [movies, totalPages] = ApiMovies(currentPage);
+    const [newSortBy, setNewSortBy] = useState<string>('primary_release_date.asc')
 
 
   return (
@@ -26,7 +27,7 @@ import { ApiMovies } from "./ApiMovies";
       <Pagination
       currentPage ={currentPage}
       setCurrentPage={setCurrentPage}
-      totalPages={totalPages}
+      totalPages={totalPages as number}
       ></Pagination>
     </>
   );

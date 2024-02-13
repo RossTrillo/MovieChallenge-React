@@ -8,9 +8,13 @@ interface Movie {
   genre_ids: number;
 }
 
-export const ApiMovies = (page:number) => {
+export const ApiMovies = (page: number, newSortBy: string, newFilterBy:number) => { // sortBy como parámetro opcional
+  console.log("newSortBy:", newSortBy); // Agregar este console.log para verificar el valor de sortBy
+ console.log("page", page)
+ console.log("filter by:" , newFilterBy)
   const [movies, setMovies] = useState<Movie[]>([]);
   const [totalPages, setTotalPages] = useState<number>(1);
+
 
   useEffect(() => {
     const options = {
@@ -22,17 +26,15 @@ export const ApiMovies = (page:number) => {
       },
     };
 
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
-      options
-    )
+    let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${newSortBy}&with_genres=14`
+    fetch(url, options)
       .then((response) => response.json())
       .then((response) => {
         setMovies(response.results);
         setTotalPages(response.total_pages);
       })
       .catch((err) => console.error(err));
-  }, [page]);
+  }, [page, newSortBy, newFilterBy]); // Observa el cambio en sortBy
 
   return [movies, totalPages];
 };
