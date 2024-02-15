@@ -1,13 +1,14 @@
-  //import {useState} from 'react'
+ // import {useState} from 'react'
   import pelicula from './assets/pelicula.png'
   import './App.css'
-  import { ConteinerFilters} from './Components/conteinerFilters'
+ // import { ConteinerFilters} from './Components/conteinerFilters'
   import { ConteinerCards} from './Components/ConteinerCards'
 
 
   function App() {
-    //const [currentPage, setCurrentPage] = useState<string>("")
-   // const [newSortBy, setNewSortBy] = useState<string>("primary_release_date.asc")
+ // const [currentPage, setCurrentPage] = useState<number>(1);
+ // const [newSortBy, setNewSortBy] = useState<string>('');
+ // const [mewFilterBy, setNewFilterBy] = useState<number>(1);
     return (
       <>
           <header>
@@ -17,7 +18,6 @@
               CINEMANÍA
             </p>
           </header>
-          <ConteinerFilters></ConteinerFilters>
           <ul className='ulClass'>
             <ConteinerCards/>
           </ul>
