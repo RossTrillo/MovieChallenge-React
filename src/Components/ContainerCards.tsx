@@ -39,6 +39,8 @@ interface ConteinerCardsProps {
   );
 }; */
 
+/*
+
 import { useState } from "react";
 import { Pagination } from "./Pagination";
 import { ApiMovies } from "./ApiMovies";
@@ -59,9 +61,7 @@ export const ConteinerCards = () => {
       newSortBy = "primary_release_date.asc";
     } else if (optionValue === "desc") {
       newSortBy = "primary_release_date.desc";
-    }
-
-    console.log("order", newSortBy);*/
+    } 
 
     setSortBy(optionValue);
   };
@@ -76,7 +76,7 @@ export const ConteinerCards = () => {
 
   return (
     <>
-      {Array.isArray(movies) && movies.map((movie) => (
+      {movies.map((movie) => (
         <li key={movie.id} data-id={movie.genre_ids} className="liClass">
           <a href="#" className="card-link">
             <dl className="user-name">
@@ -105,7 +105,7 @@ export const ConteinerCards = () => {
           id="channel"
           onChange={filterData}
           value={filterBy}
-        > <option value="">Filter by Genre</option>
+        > <option value="Todos">Filter by Genre</option>
         {
           genre.map((genres) => (
             <option key={genres.id} value={genres.id}className="optionClass">{genres.name}</option>
@@ -126,5 +126,40 @@ export const ConteinerCards = () => {
         </select>
       </div>
     </>
+  );
+}; */
+
+import React from 'react';
+import {GetMovies } from '../DataMovies/GetMovies';
+
+interface ContainerCardsProps {
+  currentPage: number;
+  sortBy: string;
+  filterBy: number;
+}
+
+export const ContainerCards: React.FC<ContainerCardsProps> = ({ currentPage, sortBy, filterBy }) => {
+  const [movies, totalPages] = GetMovies(currentPage, sortBy, filterBy);
+
+  return (
+    <div className='ulClass'>
+      {movies.map((movie) => (
+        <li key={movie.id} data-id={movie.genre_ids} className="liClass">
+          <a href="#" className="card-link">
+            <dl className="user-name">
+              <figure>
+                <img
+                  className="imgLi"
+                  src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                  alt={movie.original_title} // Agregado alt
+                />
+              </figure>
+              <dt>{movie.original_title}</dt>
+              <dd>{movie.release_date}</dd>
+            </dl>
+          </a>
+        </li>
+      ))}
+    </div>
   );
 };

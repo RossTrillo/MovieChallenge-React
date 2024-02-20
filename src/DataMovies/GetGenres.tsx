@@ -5,7 +5,7 @@ export interface Genres {
   name: string;
 }
 
-export const GenreList = () => { // sortBy como parámetro opcional
+export const GetGenres = () => { // sortBy como parámetro opcional
 
   const [genre, setGenre] = useState<Genres[]>([]);
 

@@ -8,10 +8,10 @@ interface Movie {
   genre_ids: number;
 }
 
-export const ApiMovies = (page: number, newSortBy: string, newFilterBy:number) => { // sortBy como parámetro opcional
-  console.log("newSortBy:", newSortBy); 
+export const GetMovies = (page: number, sortBy: string, filterBy:number) => { // sortBy como parámetro opcional
+  console.log("SortBy:", sortBy); 
  console.log("page", page)
- console.log("filter by:" , newFilterBy)
+ console.log("filter by:" , filterBy)
   const [movies, setMovies] = useState<Movie[]>([]);
   const [totalPages, setTotalPages] = useState<number>(1);
 
@@ -26,7 +26,7 @@ export const ApiMovies = (page: number, newSortBy: string, newFilterBy:number) =
       },
     };
 
-    let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${newSortBy}&with_genres=${newFilterBy}`
+    let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${sortBy}&with_genres=${filterBy}`
     fetch(url, options)
       .then((response) => response.json())
       .then((response) => {
@@ -35,7 +35,7 @@ export const ApiMovies = (page: number, newSortBy: string, newFilterBy:number) =
       })
       .catch((err) => console.error(err));
       console.log(url)
-  }, [page, newSortBy, newFilterBy]); // Observa el cambio en sortBy
+  }, [page, sortBy, filterBy]); // Observa el cambio en sortBy
 
   return [movies, totalPages];
   

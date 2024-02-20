@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import pelicula from './assets/pelicula.png'
 import './App.css'
-import { ConteinerFilters } from './conteinerFilters'
-import { ConteinerCards } from './ConteinerCards'
+import { ConteinerFilters } from './ContainerFilters'
+import { ConteinerCards } from './ContainerCards'
 
 export const Home = () => {
     const [currentPage, setCurrentPage] = useState<string>("")
