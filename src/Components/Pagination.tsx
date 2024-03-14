@@ -32,7 +32,7 @@ export const Pagination = ({
 
   return (
     <nav className="pagination">
-      <ul className="conteinerPagination">
+      <ul className="containerPagination">
         <a className="backButton" onClick={previusPage}>
           Anterior
         </a>

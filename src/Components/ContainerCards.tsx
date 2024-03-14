@@ -130,28 +130,29 @@ export const ConteinerCards = () => {
 }; */
 
 import React from 'react';
-import {GetMovies } from '../DataMovies/GetMovies';
+import {UseMovies} from '../hooks/UseMovies';
+import { Link } from 'react-router-dom';
 
 interface ContainerCardsProps {
   currentPage: number;
   sortBy: string;
-  filterBy: number;
+  filterBy: string;
 }
 
 export const ContainerCards: React.FC<ContainerCardsProps> = ({ currentPage, sortBy, filterBy }) => {
-  const [movies, totalPages] = GetMovies(currentPage, sortBy, filterBy);
+  const [movies, totalPages] = UseMovies(currentPage, sortBy, filterBy);
 
   return (
     <div className='ulClass'>
       {movies.map((movie) => (
-        <li key={movie.id} data-id={movie.genre_ids} className="liClass">
-          <a href="#" className="card-link">
+        <li key={movie.id} data-id={movie.genre_ids} className="liClass" data-testid="movie-item">
+          <a href="/details" className="card-link">
             <dl className="user-name">
               <figure>
                 <img
                   className="imgLi"
                   src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
-                  alt={movie.original_title} // Agregado alt
+                  alt={movie.original_title}
                 />
               </figure>
               <dt>{movie.original_title}</dt>

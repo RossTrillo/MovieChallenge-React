@@ -72,7 +72,7 @@ export const ConteinerFilters = () => {
 }; */
 
 import React from 'react';
-import { GetGenres } from '../DataMovies/GetGenres';
+import { UseGenres } from '../hooks/UseGenres';
 
 interface ContainerFiltersProps {
   setSortBy: React.Dispatch<React.SetStateAction<string>>;
@@ -80,7 +80,7 @@ interface ContainerFiltersProps {
 }
 
 export const ContainerFilters: React.FC<ContainerFiltersProps> = ({ setSortBy, setFilterBy }) => {
-  const [genre] = GetGenres();
+  const [genre] = UseGenres();
   const sortData = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const optionValue = e.target.value;
     setSortBy(optionValue);

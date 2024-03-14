@@ -69,7 +69,7 @@ export const App = () => {
 
 export default App */
 
-import React, { useState } from 'react';
+/*import { useState } from 'react';
 import './App.css';
 import { ContainerCards } from './Components/ContainerCards';
 import { ContainerFilters } from './Components/ContainerFilters';
@@ -88,11 +88,36 @@ function App() {
       <main>
         <ContainerFilters setSortBy={setSortBy} setFilterBy={setFilterBy} />
         <ContainerCards currentPage={currentPage} sortBy={sortBy} filterBy={filterBy} />
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Pagination totalPages = {0} currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </main>
      <Footer></Footer>
     </>
   );
 }
+
+export default App;*/
+
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+
+import { Details } from "./views/Details";
+import Home from "./Components/Home";
+
+import { NoPage } from "./views/NoPage";
+
+
+
+const App = () => {
+  return (
+
+    <Routes>
+      <Route path="/details" element={<Details />} />
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<NoPage />} />
+    </Routes>
+
+  );
+};
+
 
 export default App;

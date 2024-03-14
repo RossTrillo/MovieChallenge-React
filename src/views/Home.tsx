@@ -1,12 +1,12 @@
 import { useState } from 'react';
 //import './App.css';
-import { ContainerCards } from './ContainerCards';
-import { ContainerFilters } from './ContainerFilters';
-import { Pagination } from './Pagination';
-import { Header } from './Header';
-import { Footer} from './Footer';
+import { ContainerCards } from '../Components/ContainerCards';
+import { ContainerFilters } from '../Components/ContainerFilters';
+import { Pagination } from '../Components/Pagination';
+import { Header } from '../Components/Header';
+import { Footer} from '../Components/Footer';
 
-function Home() {
+ const Home = ()  =>{
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [sortBy, setSortBy] = useState<string>("");
   const [filterBy, setFilterBy] = useState<string>(""); 
@@ -24,4 +24,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home

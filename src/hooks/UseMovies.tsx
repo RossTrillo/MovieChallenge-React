@@ -8,10 +8,10 @@ interface Movie {
   genre_ids: number;
 }
 
-export const GetMovies = (page: number, sortBy: string, filterBy:number) => { // sortBy como parámetro opcional
-  console.log("SortBy:", sortBy); 
- console.log("page", page)
- console.log("filter by:" , filterBy)
+export const UseMovies = (page: number, sortBy: string, filterBy:string) => { // sortBy como parámetro opcional
+  //console.log("SortBy:", sortBy); 
+// console.log("page", page)
+// console.log("filter by:" , filterBy)
   const [movies, setMovies] = useState<Movie[]>([]);
   const [totalPages, setTotalPages] = useState<number>(1);
 
@@ -34,9 +34,9 @@ export const GetMovies = (page: number, sortBy: string, filterBy:number) => { //
         setTotalPages(response.total_pages);
       })
       .catch((err) => console.error(err));
-      console.log(url)
+   //   console.log(url)
   }, [page, sortBy, filterBy]); // Observa el cambio en sortBy
+ // console.log(movies)
 
   return [movies, totalPages];
-  
 };
